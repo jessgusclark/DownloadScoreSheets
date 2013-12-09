@@ -1,6 +1,18 @@
 <?php
 	session_start();
 	include("config.php");
+	include("classes/checkAccess.php");
+
+	$check = new checkAccess();
+
+	if ($check->CheckAccess($_REQUEST["pdf"], $_SESSION['brewerID'])){
+		echo "DOWNLOAD!";
+	}else{
+		echo "ERROR!";		
+	}
+
+	/*
+	
 	include("../../site/config.php");
 
 	//Check global data:
@@ -37,8 +49,9 @@
 	//clean up file name for download:
 	foreach(array(" ", "'", '"', "&") as $item){
 		$brewName = str_replace($item, "", $brewName);
-	}
+	}*/
 
+/*
 	header('Content-type: application/pdf');
 
 	// It will be called Scoresheet####BrewName.pdf
@@ -48,5 +61,5 @@
 	readfile($PdfDirectory . $FileNamePrefix . $scoresheetID . '.pdf');
 
 
-	mysql_close($link);
+	mysql_close($link);*/
 ?>
