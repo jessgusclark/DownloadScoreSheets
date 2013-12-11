@@ -2,7 +2,7 @@
 	
 	// Please change these variables:
 	// After the PDF's have been uploaded into the directory, change this variable to TRUE:
-	$DownloadLinksReady = TRUE;
+	$DownloadLinksReady = FALSE;
 
 
 	// This is the path to the directory where the scoresheets are located. KEEP the trailing slash!
