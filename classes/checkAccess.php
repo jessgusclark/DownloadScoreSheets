@@ -35,8 +35,8 @@ class CheckAccess{
 
 		if(!$this->CheckIfUserHasAccessToDownload())
 			return false;
-
-
+		if (!$this->CheckToSeeIfFileExists())
+			return false;
 		
 
 
@@ -60,16 +60,20 @@ class CheckAccess{
 		$sql = "SELECT id, brewName FROM `brewing` WHERE brewBrewerID = '" . $this->UserID . "' AND id= '" . $this->ScoresheetID . "' LIMIT 1";
 		$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 
-		echo $sql . "<br>";
-
-		if(mysql_num_rows($result)==0){
-			echo "No Rows";
+		if(mysql_num_rows($result)==0)
 			return false;
-		}else{
-			echo "Rows!";
-			return true;
-		}
+		
+		return true;
 	}
 
+	protected function CheckToSeeIfFileExists(){
+		global $PdfDirectory, $FileNamePrefix;
+		$FileName = $PdfDirectory . $FileNamePrefix . $this->ScoresheetID . '.pdf';
+		
+		if (!file_exists ( $FileName ))
+			return false;
+
+		return true;
+	}
 }
 ?>

@@ -7,6 +7,18 @@
 
 	if ($check->CheckAccess($_SESSION['brewerID'], $_REQUEST["pdf"])){
 		echo "DOWNLOAD!";
+		foreach(array(" ", "'", '"', "&") as $item){
+			$brewName = str_replace($item, "", $brewName);
+		}
+
+		header('Content-type: application/pdf');
+
+		// It will be called Scoresheet####BrewName.pdf
+		header('Content-Disposition: attachment; filename="Scoresheet' . $scoresheetID . '-' . $brewName . '.pdf"');
+
+		// Original PDF:
+		readfile($PdfDirectory . $FileNamePrefix . $scoresheetID . '.pdf');
+	
 	}else{
 		echo "ERROR!";		
 	}
@@ -47,18 +59,10 @@
 
 
 	//clean up file name for download:
-	foreach(array(" ", "'", '"', "&") as $item){
-		$brewName = str_replace($item, "", $brewName);
-	}*/
+	*/
 
 /*
-	header('Content-type: application/pdf');
-
-	// It will be called Scoresheet####BrewName.pdf
-	header('Content-Disposition: attachment; filename="Scoresheet' . $scoresheetID . '-' . $brewName . '.pdf"');
-
-	// Original PDF:
-	readfile($PdfDirectory . $FileNamePrefix . $scoresheetID . '.pdf');
+	
 
 
 	mysql_close($link);*/
