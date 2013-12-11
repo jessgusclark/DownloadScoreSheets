@@ -47,7 +47,6 @@ class CheckAccess{
 	protected function ScoreshetsReady(){
 		if (!$this->ScoreshetsReady){
 			return false;
-			//die("Scoresheets are not ready");
 		}
 		return true;
 	}
