@@ -5,7 +5,7 @@
 
 	$check = new checkAccess();
 
-	if ($check->CheckAccess($_SESSION['brewerID'], $_REQUEST["pdf"])){
+	if ($check->CheckAccess($brewerID, $_REQUEST["pdf"])){
 		$BrewName = $check->BrewName;
 		foreach(array(" ", "'", '"', "&") as $item){
 			$BrewName = str_replace($item, "", $BrewName);
