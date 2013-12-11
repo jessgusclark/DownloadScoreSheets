@@ -6,21 +6,23 @@
 	$check = new checkAccess();
 
 	if ($check->CheckAccess($_SESSION['brewerID'], $_REQUEST["pdf"])){
-		echo "DOWNLOAD!";
+		$BrewName = $check->BrewName;
 		foreach(array(" ", "'", '"', "&") as $item){
-			$brewName = str_replace($item, "", $brewName);
+			$BrewName = str_replace($item, "", $BrewName);
 		}
+
+		$ScoresheetID = $_REQUEST["pdf"];
 
 		header('Content-type: application/pdf');
 
 		// It will be called Scoresheet####BrewName.pdf
-		header('Content-Disposition: attachment; filename="Scoresheet' . $scoresheetID . '-' . $brewName . '.pdf"');
+		header('Content-Disposition: attachment; filename="Scoresheet' . $ScoresheetID . '-' . $BrewName . '.pdf"');
 
 		// Original PDF:
-		readfile($PdfDirectory . $FileNamePrefix . $scoresheetID . '.pdf');
-	
+		readfile($PdfDirectory . $FileNamePrefix . $ScoresheetID . '.pdf');
+
 	}else{
-		echo "ERROR!";		
+		echo "A generic error occurred.";
 	}
 
 	/*

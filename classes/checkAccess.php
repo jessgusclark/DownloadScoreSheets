@@ -9,6 +9,7 @@ class CheckAccess{
 	protected $ScoreshetsReady;
 
 	public $FileExists;
+	public $BrewName;
 
 	protected $mysql;
 	protected $ScoresheetID;
@@ -63,6 +64,10 @@ class CheckAccess{
 		if(mysql_num_rows($result)==0)
 			return false;
 		
+		while ($row = mysql_fetch_object($result)) {
+			$this->BrewName = $row->brewName;
+		}
+
 		return true;
 	}
 
