@@ -5,7 +5,7 @@
 
 	$check = new checkAccess();
 
-	if ($check->CheckAccess($_REQUEST["pdf"], $_SESSION['brewerID'])){
+	if ($check->CheckAccess($_SESSION['brewerID'], $_REQUEST["pdf"])){
 		echo "DOWNLOAD!";
 	}else{
 		echo "ERROR!";		
