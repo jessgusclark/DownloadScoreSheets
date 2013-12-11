@@ -1,13 +1,15 @@
 DownloadScoreSheets
 ===================
 
-A plugin for BCOE&amp;M that allows users to download their score sheets once they are ready. This project is still a work in progress and will be used in the 2014 Sweethearts Revenge Competition: http://sweethearts.weizguys.com/
+A plugin for BCOE&amp;M that allows competition participants to download their score sheets once they are ready. This project is still a work in progress and will be used in the 2014 Sweethearts Revenge Competition: http://sweethearts.weizguys.com/
 
 Install
 -------
 Extract all the files into the directory: **/mods/downloadScoreSheets**
 
 Open up **/mods/downloadScoreSheets/config.php** and change the second variable name ($PdfDirectory) to point to a new directory that you will upload the final score sheet PDF's to. 
+
+Upload the **/mods/downloadScoreSheets** directory to the server.
 
 Create the score sheet directory on the server.
 
