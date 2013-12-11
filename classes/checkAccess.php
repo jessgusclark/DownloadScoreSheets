@@ -6,7 +6,7 @@ class CheckAccess{
 
 	//Boolean:
 	public $AllowDownload;
-	protected $ScoreshetsReady;
+	protected $ScoresheetsReady;
 
 	public $FileExists;
 	public $BrewName;
@@ -19,12 +19,12 @@ class CheckAccess{
 		include("../config.php");
 
 		global $DownloadLinksReady;
-		$this->ScoreshetsReady = $DownloadLinksReady;
+		$this->ScoresheetsReady = $DownloadLinksReady;
 
 	}
 
 	public function CheckAccess($userID, $scoresheetID){
-		if (!$this->ScoreshetsReady())
+		if (!$this->ScoresheetsReady)
 			return false;
 
 		if (!is_numeric($scoresheetID) || !is_numeric($userID))
@@ -41,13 +41,6 @@ class CheckAccess{
 		
 
 
-		return true;
-	}
-
-	protected function ScoreshetsReady(){
-		if (!$this->ScoreshetsReady){
-			return false;
-		}
 		return true;
 	}
 
