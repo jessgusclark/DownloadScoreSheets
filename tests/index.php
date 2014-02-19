@@ -98,7 +98,7 @@
 					  <td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>
 					  <td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
-
+					  <br/><strong>file name:</strong> Scoresheet-" . $SingleSheet->GetSafeBrewName() . ".pdf
 					  </td>
 					</tr>";
 		}
