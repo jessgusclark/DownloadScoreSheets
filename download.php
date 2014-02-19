@@ -7,10 +7,6 @@
 	$check = new checkAccess();
 
 	if ($check->CheckAccess($brewerID, $_REQUEST["pdf"])){
-		$BrewName = $check->BrewName;
-		foreach(array(" ", "'", '"', "&") as $item){
-			$BrewName = str_replace($item, "", $BrewName);
-		}
 
 		$DownloadScoreSheet = new scoresheet();
 		$DownloadScoreSheet->GetJudgingNumberByBrewID($_REQUEST["pdf"]);
@@ -18,7 +14,7 @@
 		header('Content-type: application/pdf');
 
 		// It will be called Scoresheet####BrewName.pdf
-		header('Content-Disposition: attachment; filename="Scoresheet' . $ScoresheetID . '-' . $DownloadScoreSheet->BrewName . '.pdf"');
+		header('Content-Disposition: attachment; filename="Scoresheet' . $ScoresheetID . '-' . $DownloadScoreSheet->GetSafeBrewName . '.pdf"');
 
 		// Original PDF:
 		//echo $PdfDirectory . $FileNamePrefix . $DownloadScoreSheet->ReturnJudgingNumber() . '.pdf';
