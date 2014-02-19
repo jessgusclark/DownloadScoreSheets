@@ -2,22 +2,17 @@
 
 class CheckAccess{
 
-	public $HasAccess;
-
 	//Boolean:
-	public $AllowDownload;
-	protected $ScoresheetsReady;
-
 	public function __construct() {
-		include_once("../config.php");
-
-		global $DownloadLinksReady;
-		$this->ScoresheetsReady = $DownloadLinksReady;
-
+		
 	}
 
 	public function CheckAccess($userID, $scoresheetID){
-		if (!$this->ScoresheetsReady){
+		
+		include_once("../config.php");
+		global $DownloadLinksReady;
+
+		if (!$DownloadLinksReady){
 			echo "Scoresheets are not ready.<br>";
 			return false;
 		}
@@ -51,7 +46,7 @@ class CheckAccess{
 		if ($TestMode)
 			return true;
 
-		include("../../site/config.php");		
+		include_once("../../site/config.php");		
 		mysql_select_db($database, $connection);
 
 		//check to see if this user has access to download this PDF:
