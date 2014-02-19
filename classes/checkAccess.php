@@ -11,9 +11,6 @@ class CheckAccess{
 	public $FileExists;
 	public $BrewName;
 
-	protected $ScoresheetID;
-	protected $UserID;
-
 	public function __construct() {
 		include("../config.php");
 
@@ -30,12 +27,16 @@ class CheckAccess{
 			return false;
 
 		// variables are good; set them:
-		$this->ScoresheetID = $scoresheetID;	
-		$this->UserID = $userID;	
+		include_once("scoresheet.php");
 
-		if(!$this->CheckIfUserHasAccessToDownload())
+		$CheckScoreSheet = new ScoreSheet();
+		$CheckScoreSheet->GetJudgingNumberByBrewID($scoresheetID);
+		$CheckScoreSheet->UserID = $userID;
+
+
+		if(!$this->CheckIfUserHasAccessToDownload($CheckScoreSheet))
 			return false;
-		if (!$this->CheckToSeeIfFileExists())
+		if (!$this->CheckToSeeIfFileExists($CheckScoreSheet))
 			return false;
 		
 
@@ -43,13 +44,13 @@ class CheckAccess{
 		return true;
 	}
 
-	protected function CheckIfUserHasAccessToDownload(){
+	protected function CheckIfUserHasAccessToDownload($scoreSheet){
 		
 		include("../../site/config.php");		
 		mysql_select_db($database, $connection);
 
 		//check to see if this user has access to download this PDF:
-		$sql = "SELECT id, brewName FROM `brewing` WHERE brewBrewerID = '" . $this->UserID . "' AND id= '" . $this->ScoresheetID . "' LIMIT 1";
+		$sql = "SELECT id, brewName FROM `brewing` WHERE brewBrewerID = '" . $scoreSheet->UserID . "' AND brewJudgingNumber= '" . $scoreSheet->JudgingNumber . "' LIMIT 1";
 		$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 
 		if(mysql_num_rows($result)==0)
@@ -62,13 +63,13 @@ class CheckAccess{
 		return true;
 	}
 
-	protected function CheckToSeeIfFileExists(){
-		/*global $PdfDirectory, $FileNamePrefix;
-		$FileName = $PdfDirectory . $FileNamePrefix . $this->ScoresheetID . '.pdf';
-		
+	protected function CheckToSeeIfFileExists($scoreSheet){
+		global $PdfDirectory, $FileNamePrefix;
+		$FileName = $PdfDirectory . $FileNamePrefix . $scoreSheet->ReturnJudgingNumber() . '.pdf';
+		//echo $FileName;
 		if (!file_exists ( $FileName ))
 			return false;
-		*/
+		
 		return true;
 	}
 }

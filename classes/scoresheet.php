@@ -3,6 +3,7 @@ class ScoreSheet {
 
 	public $BrewID;
 	public $BrewName;
+	public $UserID;
 	public $JudgingNumber;
 
 	public function ReturnJudgingNumber(){		
