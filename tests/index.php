@@ -52,7 +52,12 @@
 		$SimulateUser = new brewUser($_POST["UserID"]);
 		$SimulateUser->GetScoreSheetsForUser();
 
-		echo "USER: " . $SimulateUser->UserID;
+		// show user data:		
+		$sql = "SELECT uid, brewerFirstName, brewerLastName FROM brewer WHERE uid = '" . $SimulateUser->UserID. "' LIMIT 1";
+		$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
+		while ($row = mysql_fetch_object($result)) {
+			echo "<h3>" . $row->brewerFirstName . " " . $row->brewerLastName . " (" . $row->uid . ")</h3>";
+		}
 
 		$check = new CheckAccess();	//$SimulateUser->UserID, $SingleSheet->BrewID;
 
