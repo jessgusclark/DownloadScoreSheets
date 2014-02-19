@@ -11,7 +11,7 @@ class CheckAccess{
 	public $FileExists;
 
 	public function __construct() {
-		include("../config.php");
+		include_once("../config.php");
 
 		global $DownloadLinksReady;
 		$this->ScoresheetsReady = $DownloadLinksReady;
@@ -47,7 +47,7 @@ class CheckAccess{
 		return true;
 	}
 
-	protected function CheckIfUserHasAccessToDownload($scoreSheet){
+	public function CheckIfUserHasAccessToDownload($scoreSheet){
 		global $TestMode;
 
 		if ($TestMode)
@@ -68,7 +68,7 @@ class CheckAccess{
 		return true;
 	}
 
-	protected function CheckToSeeIfFileExists($scoreSheet){
+	public function CheckToSeeIfFileExists($scoreSheet){
 		global $PdfDirectory, $FileNamePrefix;
 		$FileName = $PdfDirectory . $FileNamePrefix . $scoreSheet->ReturnJudgingNumber() . '.pdf';
 		//echo $FileName;
