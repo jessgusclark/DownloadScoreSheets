@@ -11,7 +11,6 @@ class CheckAccess{
 	public $FileExists;
 	public $BrewName;
 
-	protected $mysql;
 	protected $ScoresheetID;
 	protected $UserID;
 
