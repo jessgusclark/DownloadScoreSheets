@@ -12,7 +12,7 @@
 
 	// This is the prefix for the naming convention used. If the PDF's are named Scoresheet#.pdf, 
 	// then this variable would be equal to "Scoresheet".
-	$FileNamePrefix = "Scoresheet";
+	$FileNamePrefix = "";
 
 
 	// Please leave this variable alone:
