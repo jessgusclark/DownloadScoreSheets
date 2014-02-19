@@ -46,8 +46,8 @@ class CheckAccess{
 		if ($TestMode)
 			return true;
 
-		include_once("../../site/config.php");		
-		mysql_select_db($database, $connection);
+		/*include_once("../../site/config.php");		
+		mysql_select_db($database, $connection);*/
 
 		//check to see if this user has access to download this PDF:
 		$sql = "SELECT id, brewName FROM `brewing` WHERE brewBrewerID = '" . $scoreSheet->UserID . "' AND brewJudgingNumber= '" . $scoreSheet->JudgingNumber . "' LIMIT 1";
