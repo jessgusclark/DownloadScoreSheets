@@ -11,7 +11,7 @@ if ($DownloadLinksReady){
 	$LoadUser->GetScoreSheetsForUser();
 
 	foreach ($LoadUser->AllScoresheets as $ScoreSheet) {
-		echo "<li><a href=\"mods/downloadScoreSheets/download.php?pdf=" . $ScoreSheet->BrewID . "\" target=\"_blank\">"
+		echo "<li><a href=\"mods/downloadScoreSheets/download.php?pdf=" . $ScoreSheet->ReturnJudgingNumber() . "\" target=\"_blank\">"
 		 . $ScoreSheet->BrewName . "</a></li>";
 	}
 
