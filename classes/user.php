@@ -12,7 +12,7 @@ class brewUser{
 		include("mods/downloadScoreSheets/classes/scoresheet.php");
 		$this->AllScoresheets = array();
 
-		$sql = "SELECT id, brewName, JudgingNumber FROM `brewing` WHERE brewBrewerID = '" . $this->UserID . "' ";
+		$sql = "SELECT id, brewName, brewJudgingNumber FROM `brewing` WHERE brewBrewerID = '" . $this->UserID . "' ";
 		$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		while ($row = mysql_fetch_object($result)) {
 
