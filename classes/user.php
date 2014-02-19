@@ -9,7 +9,7 @@ class brewUser{
     }  
 
 	public function GetScoreSheetsForUser(){
-		include("mods/downloadScoreSheets/classes/scoresheet.php");
+		include_once("scoresheet.php");
 		$this->AllScoresheets = array();
 
 		$sql = "SELECT id, brewName, brewJudgingNumber FROM `brewing` WHERE brewBrewerID = '" . $this->UserID . "' ";
