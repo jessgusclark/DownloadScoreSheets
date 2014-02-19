@@ -6,7 +6,7 @@
 
 	$check = new checkAccess();
 
-	/*if ($check->CheckAccess($brewerID, $_REQUEST["pdf"])){*/
+	if ($check->CheckAccess($brewerID, $_REQUEST["pdf"])){
 		$BrewName = $check->BrewName;
 		foreach(array(" ", "'", '"', "&") as $item){
 			$BrewName = str_replace($item, "", $BrewName);
@@ -24,8 +24,8 @@
 		//echo $PdfDirectory . $FileNamePrefix . $DownloadScoreSheet->ReturnJudgingNumber() . '.pdf';
 		readfile($PdfDirectory . $FileNamePrefix . $DownloadScoreSheet->ReturnJudgingNumber() . '.pdf');
 
-	/*}else{
+	}else{
 		echo "A generic error occurred.";
-	}*/
+	}
 	
 ?>
