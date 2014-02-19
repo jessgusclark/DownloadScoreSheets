@@ -14,6 +14,9 @@
 	// then this variable would be equal to "Scoresheet".
 	$FileNamePrefix = "";
 
+	// Test Mode does not check against the database to see if the user has access to download. This 
+	// can be used to test.
+	$TestMode = TRUE;
 
 	// Please leave this variable alone:
 	$brewerID = $_SESSION["brewerID"];

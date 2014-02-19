@@ -48,7 +48,11 @@ class CheckAccess{
 	}
 
 	protected function CheckIfUserHasAccessToDownload($scoreSheet){
-		
+		global $TestMode;
+
+		if ($TestMode)
+			return true;
+
 		include("../../site/config.php");		
 		mysql_select_db($database, $connection);
 
