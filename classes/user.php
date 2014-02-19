@@ -21,6 +21,8 @@ class brewUser{
 			$tempScoresheet->BrewName = $row->brewName;
 			$tempScoresheet->JudgingNumber = $row->brewJudgingNumber;
 
+			$tempScoresheet->UserID = $this->UserID;
+
 			array_push($this->AllScoresheets, $tempScoresheet);
 		}
 
