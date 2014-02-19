@@ -9,6 +9,7 @@
 <meta charset="utf-8">
 <title>Test Scoresheets being ready.</title>
 <style type="text/css">
+		* {font-family: arial}
 		th {text-align:left; border-bottom:2px solid #000;}
 		td {vertical-align: top; border-bottom:1px solid #ccc;}
 		.red {color: red; font-weight: bold}
@@ -59,7 +60,7 @@
 			echo "<h3>" . $row->brewerFirstName . " " . $row->brewerLastName . " (" . $row->uid . ")</h3>";
 		}
 
-		$check = new CheckAccess();	//$SimulateUser->UserID, $SingleSheet->BrewID;
+		$check = new CheckAccess();	
 
 		foreach ($SimulateUser->AllScoresheets as $SingleSheet){
 
