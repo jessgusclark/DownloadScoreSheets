@@ -20,8 +20,8 @@
 		//echo $PdfDirectory . $FileNamePrefix . $DownloadScoreSheet->ReturnJudgingNumber() . '.pdf';
 		readfile($PdfDirectory . $FileNamePrefix . $DownloadScoreSheet->ReturnJudgingNumber() . '.pdf');
 
-	}else{
-		echo "A generic error occurred.";
+	}else{		
+		echo "<hr/>A generic error occurred.";
 	}
 	
 ?>

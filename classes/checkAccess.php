@@ -19,11 +19,15 @@ class CheckAccess{
 	}
 
 	public function CheckAccess($userID, $scoresheetID){
-		if (!$this->ScoresheetsReady)
+		if (!$this->ScoresheetsReady){
+			echo "Scoresheets are not ready.<br>";
 			return false;
+		}
 
-		if (!is_numeric($scoresheetID) || !is_numeric($userID))
+		if (!is_numeric($scoresheetID) || !is_numeric($userID)){
+			echo "ScoresheetID or UserID is not numeric.";
 			return false;
+		}
 
 		// variables are good; set them:
 		include_once("scoresheet.php");
@@ -52,8 +56,10 @@ class CheckAccess{
 		$sql = "SELECT id, brewName FROM `brewing` WHERE brewBrewerID = '" . $scoreSheet->UserID . "' AND brewJudgingNumber= '" . $scoreSheet->JudgingNumber . "' LIMIT 1";
 		$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 
-		if(mysql_num_rows($result)==0)
+		if(mysql_num_rows($result)==0){
+			echo "User Does not have access to download that file.";
 			return false;
+		}
 		
 		return true;
 	}
@@ -62,8 +68,10 @@ class CheckAccess{
 		global $PdfDirectory, $FileNamePrefix;
 		$FileName = $PdfDirectory . $FileNamePrefix . $scoreSheet->ReturnJudgingNumber() . '.pdf';
 		//echo $FileName;
-		if (!file_exists ( $FileName ))
+		if (!file_exists ( $FileName )){
+			echo "The file '" . $scoreSheet->ReturnJudgingNumber() . ".pdf' could not be found.";
 			return false;
+		}
 		
 		return true;
 	}
