@@ -8,8 +8,6 @@ class CheckAccess{
 	public $AllowDownload;
 	protected $ScoresheetsReady;
 
-	public $FileExists;
-
 	public function __construct() {
 		include_once("../config.php");
 
