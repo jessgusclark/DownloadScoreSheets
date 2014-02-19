@@ -64,12 +64,12 @@ class CheckAccess{
 	}
 
 	protected function CheckToSeeIfFileExists(){
-		global $PdfDirectory, $FileNamePrefix;
+		/*global $PdfDirectory, $FileNamePrefix;
 		$FileName = $PdfDirectory . $FileNamePrefix . $this->ScoresheetID . '.pdf';
 		
 		if (!file_exists ( $FileName ))
 			return false;
-
+		*/
 		return true;
 	}
 }
