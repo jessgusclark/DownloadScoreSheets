@@ -13,15 +13,23 @@ include("../config.php");
 mysql_select_db($database, $connection);
 
 include("../classes/scoresheet.php");
+include("../classes/scoresheetTest.php");
 
 if (is_numeric($_REQUEST["scoresheetID"])){
 
 	$ConfirmScoreSheet = new Scoresheet();
-	$ConfirmScoreSheet->BrewID = $_REQUEST["scoresheetID"];
-
-
-
+	$ConfirmScoreSheet->GetJudgingNumberByBrewID($_REQUEST["scoresheetID"]);
 	var_dump($ConfirmScoreSheet);
+
+?>
+
+<form id="form1" name="form1" method="post" action="">
+
+
+</form>
+
+
+<?php
 
 }
 

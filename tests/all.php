@@ -90,6 +90,8 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			}
 			echo "-->";
 
+		// Confirming:
+		$SingleSheet->CheckConfirm();
 
 		echo "<tr>
 			<td>" . $SingleSheet->BrewID . "</td>
@@ -108,7 +110,11 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  </td>
-			  <td><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
+			  <td>" 
+
+			  . $SingleSheet->ReturnConfirmation() .
+
+			  "<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
 		</tr>";
 	}
 ?>
