@@ -74,6 +74,10 @@ if (isset($_POST["ConfirmID"])){
 		echo "<h2>Comfirmed Saved.</h2>";
 }
 ?>
-
+<hr/>
+<ul>
+	<li><a href="all.php">Back to All Listings</a></li>
+	<li><a href="index.php">Back to People Search</a></li>
+</ul>
 </body>
 </html>
