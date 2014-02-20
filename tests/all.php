@@ -60,6 +60,7 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		<th>Received</th>
 		<th>Download</th>
 		<th>Auto Tests</th>
+		<th>Confirm</th>
 </tr>
 <?php
 
@@ -102,6 +103,7 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  </td>
+			  <td><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
 		</tr>";
 	}
 ?>

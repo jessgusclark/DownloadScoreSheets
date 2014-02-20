@@ -44,6 +44,7 @@
 		<th>Style</th>
 		<th>Download</th>
 		<th>Auto Tests</th>
+		<th>Confirm</th>
 </tr>
 <?php
 
@@ -109,6 +110,7 @@
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  <br/><strong>file name:</strong> Scoresheet" . $SingleSheet->BrewID . "-" . $SingleSheet->GetSafeBrewName() . ".pdf
 					  </td>
+				  <td><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
 					</tr>";
 		}
 
