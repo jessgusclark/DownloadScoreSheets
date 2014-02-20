@@ -97,9 +97,15 @@
 			echo "<tr><td>" . $SingleSheet->BrewID . "</td>
 					  <td>" . $SingleSheet->ReturnJudgingNumber() . "</td>
 					  <td>" . $SingleSheet->BrewName . "</td>
-					  <td><em>(" . $categoryNumber . ") " . $categoryWritten . "</em></td>
-					  <td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>
-					  <td><strong>user has access:</strong> " . $HasAccess . "
+					  <td><em>(" . $categoryNumber . ") " . $categoryWritten . "</em></td>";
+			
+			if ($FileExists == "TRUE"){
+				echo "<td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>";
+			}else{
+				echo "<td> </td>";
+			}
+			
+			echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  <br/><strong>file name:</strong> Scoresheet" . $SingleSheet->BrewID . "-" . $SingleSheet->GetSafeBrewName() . ".pdf
 					  </td>
