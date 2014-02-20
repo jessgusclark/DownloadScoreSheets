@@ -54,7 +54,11 @@ if (isset($_POST["ConfirmID"])){
 	mysql_select_db($database, $connection);
 
 	if ($_POST["ConfirmID"] == ""){
-		$sql = "INSERT INTO `downloadConfirm` (`ScoresheetID`, `Status`, `VerifiedBy`, `Comments`) VALUES ('" . $_POST["BrewID"] . "', '" . $_POST["Status"] . "', '" . $_POST["VerifiedBy"] . "', '" . $_POST["Comments"] . "';";
+		$sql = "INSERT INTO `downloadConfirm` (`ScoresheetID`, `Status`, `VerifiedBy`, `Comments`) 
+		VALUES ('" . $_POST["BrewID"] . "', 
+				'" . $_POST["Status"] . "', 
+				'" . $_POST["VerifiedBy"] . "', 
+				'" . $_POST["Comments"] . "';";
 	}else{
 		//update	
 		$sql = "UPDATE `downloadConfirm` 	
