@@ -19,6 +19,9 @@
 	$TestMode = TRUE;
 
 	// Please leave this variable alone:
-	if (isset($_SESSION["brewerID"]))
+	if (isset($_SESSION["brewerID"])){
 		$brewerID = $_SESSION["brewerID"];
+	}else{
+		$brewerID = 1000;
+	}
 ?>
