@@ -91,9 +91,15 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			<td>" . $SingleSheet->JudgingNumber . "</td>
 			<td>" . $SingleSheet->BrewName . "</td>
 			<td>" . $SingleSheet->BrewPaid . "</td>
-			<td>" . $SingleSheet->brewReceived . "</td>
-			<td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>
-			<td><strong>user has access:</strong> " . $HasAccess . "
+			<td>" . $SingleSheet->brewReceived . "</td>";
+
+		if ($FileExists == "TRUE"){
+			echo "<td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>";
+		}else{
+			echo "<td> </td>";
+		}
+			
+		echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  </td>
 		</tr>";
