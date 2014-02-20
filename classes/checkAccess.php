@@ -66,7 +66,7 @@ class CheckAccess{
 		$FileName = $PdfDirectory . $FileNamePrefix . $scoreSheet->ReturnJudgingNumber() . '.pdf';
 		//echo $FileName;
 		if (!file_exists ( $FileName )){
-			echo "The file '" . $scoreSheet->ReturnJudgingNumber() . ".pdf' could not be found.";
+			echo "The file '" . $FileName . "' could not be found.";
 			return false;
 		}
 		

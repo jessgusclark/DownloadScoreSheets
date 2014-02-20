@@ -74,7 +74,8 @@
 
 			//AutoTesting:
 			//
-			echo "<!--";
+			//echo "<!--";
+			echo "<br>";
 			global $TestMode;
 			$TestMode = FALSE;
 			if ($check->CheckIfUserHasAccessToDownload($SingleSheet)){

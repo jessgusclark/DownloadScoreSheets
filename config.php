@@ -7,7 +7,7 @@
 
 	// This is the path to the directory where the scoresheets are located. KEEP the trailing slash!
 	// This can also be placed outside of the directory root if needed. 	
-	$PdfDirectory = "../../../scoresheets/";
+	$PdfDirectory = "/var/www/weizguys.com/scoresheets/"; //../../../scoresheets/";
 
 
 	// This is the prefix for the naming convention used. If the PDF's are named Scoresheet#.pdf, 
