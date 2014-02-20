@@ -58,7 +58,7 @@ if (isset($_POST["ConfirmID"])){
 		VALUES ('" . $_POST["BrewID"] . "', 
 				'" . $_POST["Status"] . "', 
 				'" . $_POST["VerifiedBy"] . "', 
-				'" . $_POST["Comments"] . "';";
+				'" . $_POST["Comments"] . "');";
 	}else{
 		//update	
 		$sql = "UPDATE `downloadConfirm` 	
