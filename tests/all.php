@@ -43,7 +43,8 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 	while ($row = mysql_fetch_object($result)) {
 		$TempScoreSheet = new ScoreSheetTest();
 		$TempScoreSheet->BrewID = $row->id;
-		$TempScoreSheet->BrewName = $row->brewName . "(" . $row->brewStyle . ")";
+		$TempScoreSheet->BrewName = $row->brewName;
+		$TempScoreSheet->BrewStyle = $row->brewStyle;
 		$TempScoreSheet->UserID = $row->brewBrewerID;
 		$TempScoreSheet->JudgingNumber = $row->brewJudgingNumber;
 		$TempScoreSheet->BrewPaid = $row->brewPaid;
@@ -57,7 +58,8 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 <tr>
 		<th>Entry #</th>
 		<th>Judging #</th>
-		<th>Beer Name (style)</th>
+		<th>Beer Name</th>
+		<th>Style</th>
 		<th>Paid</th>
 		<th>Received</th>
 		<th>Download</th>
@@ -93,6 +95,7 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			<td>" . $SingleSheet->BrewID . "</td>
 			<td>" . $SingleSheet->JudgingNumber . "</td>
 			<td>" . $SingleSheet->BrewName . "</td>
+			<td>" . $SingleSheet->BrewStyle . "</td>
 			<td>" . $SingleSheet->BrewPaid . "</td>
 			<td>" . $SingleSheet->brewReceived . "</td>";
 
