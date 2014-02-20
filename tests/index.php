@@ -60,6 +60,8 @@
 			echo "<h3>" . $row->brewerFirstName . " " . $row->brewerLastName . " (" . $row->uid . ")</h3>";
 		}
 
+		echo "<p><a href='/index.php?section=admin&go=entries&bid=" . $SimulateUser->UserID . "' target='_blank'>View in admin</a></p>";
+
 		$check = new CheckAccess();	
 
 		foreach ($SimulateUser->AllScoresheets as $SingleSheet){
