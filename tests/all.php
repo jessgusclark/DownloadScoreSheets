@@ -25,7 +25,9 @@
 
 	include_once("../classes/user.php");
 	include_once("../classes/checkAccess.php");
+
 	include_once("../classes/scoresheet.php");
+	include_once("classes/scoresheetTest.php");
 
 
 ?>
@@ -39,7 +41,7 @@ $AllScoreSheets = array();
 $sql = "SELECT id, brewName, brewStyle, brewCategory, brewJudgingNumber, brewBrewerID, brewPaid, brewReceived FROM brewing ORDER BY brewJudgingNumber";
 $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 	while ($row = mysql_fetch_object($result)) {
-		$TempScoreSheet = new ScoreSheet();
+		$TempScoreSheet = new ScoreSheetTest();
 		$TempScoreSheet->BrewID = $row->id;
 		$TempScoreSheet->BrewName = $row->brewName . "(" . $row->brewStyle . ")";
 		$TempScoreSheet->UserID = $row->brewBrewerID;
