@@ -36,7 +36,7 @@
 <?php
 $AllScoreSheets = array();
 
-$sql = "SELECT id, brewName, brewStyle, brewCategory, brewJudgingNumber, brewBrewerID FROM brewing ORDER BY brewJudgingNumber";
+$sql = "SELECT id, brewName, brewStyle, brewCategory, brewJudgingNumber, brewBrewerID, brewPaid, brewReceived FROM brewing ORDER BY brewJudgingNumber";
 $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 	while ($row = mysql_fetch_object($result)) {
 		$TempScoreSheet = new ScoreSheet();
@@ -44,6 +44,8 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		$TempScoreSheet->BrewName = $row->brewName . "(" . $row->brewStyle . ")";
 		$TempScoreSheet->UserID = $row->brewBrewerID;
 		$TempScoreSheet->JudgingNumber = $row->brewJudgingNumber;
+		$TempScoreSheet->BrewPaid = $row->brewPaid;
+		$TempScoreSheet->brewReceived = $row->brewReceived;
 
 		array_push($AllScoreSheets, $TempScoreSheet);
 	}
@@ -54,6 +56,8 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		<th>Entry #</th>
 		<th>Judging #</th>
 		<th>Beer Name (style)</th>
+		<th>Paid</th>
+		<th>Received</th>
 		<th>Download</th>
 		<th>Auto Tests</th>
 </tr>
@@ -86,6 +90,8 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			<td>" . $SingleSheet->BrewID . "</td>
 			<td>" . $SingleSheet->JudgingNumber . "</td>
 			<td>" . $SingleSheet->BrewName . "</td>
+			<td>" . $SingleSheet->BrewPaid . "</td>
+			<td>" . $SingleSheet->brewReceived . "</td>
 			<td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>
 			<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
