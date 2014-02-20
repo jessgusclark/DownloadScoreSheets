@@ -6,6 +6,9 @@ class ScoreSheet {
 	public $UserID;
 	public $JudgingNumber;
 
+	public $BrewPaid;
+	public $BrewReceived;
+
 	public function ReturnJudgingNumber(){		
 		return substr($this->JudgingNumber, 0, 2) . "-" . substr($this->JudgingNumber, 2, 4);
 	}
