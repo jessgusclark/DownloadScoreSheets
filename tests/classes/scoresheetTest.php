@@ -28,7 +28,7 @@ class ScoreSheetTest extends ScoreSheet{
 
 	public function ReturnConfirmation(){
 		if (!isset($this->ConfirmID))
-			return "<span class='red'>Not Confirmed</span>";
+			return "<span class='grey'>Not Confirmed</span>";
 
 		if ($this->Status == 0)
 			return "<span class='red'>ERROR!</span>" ;
