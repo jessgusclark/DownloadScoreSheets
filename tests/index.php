@@ -74,14 +74,14 @@
 
 			//AutoTesting:
 			//
-			//echo "<!--";
-			echo "<br>";
+			echo "<!--";
+			//echo "<br>";
 			global $TestMode;
 			$TestMode = FALSE;
 			if ($check->CheckIfUserHasAccessToDownload($SingleSheet)){
 				$HasAccess = "TRUE";
 			}else{
-				$HasAccess = "FALSE";
+				$FileExists = "<span class=\"red\">FALSE</span>";
 			}
 			if($check->CheckToSeeIfFileExists($SingleSheet)){
 				$FileExists = "TRUE";
