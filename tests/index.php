@@ -26,7 +26,7 @@
 	include_once("../classes/user.php");
 	include_once("../classes/checkAccess.php");
 	include_once("../classes/scoresheet.php");
-
+	include_once("classes/scoresheetTest.php");
 
 ?>
 <h1>DownloadScoreSheets Tests</h1>
@@ -93,7 +93,9 @@
 			}
 			echo "-->";
 
-
+			$ScoreSheetTest = new ScoresheetTest();
+			$ScoreSheetTest->BrewID = $SingleSheet->BrewID;
+			$ScoreSheetTest->CheckConfirm();
 
 			echo "<tr><td>" . $SingleSheet->BrewID . "</td>
 					  <td>" . $SingleSheet->ReturnJudgingNumber() . "</td>
@@ -109,8 +111,9 @@
 			echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  <br/><strong>file name:</strong> Scoresheet" . $SingleSheet->BrewID . "-" . $SingleSheet->GetSafeBrewName() . ".pdf
-					  </td>
-				  <td><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
+					  </td><td>". $ScoreSheetTest->ReturnConfirmation() .
+
+			  		"<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
 					</tr>";
 		}
 
