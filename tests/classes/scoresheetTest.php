@@ -7,6 +7,7 @@ class ScoreSheetTest extends ScoreSheet{
 
 	// for use with the confirm table:
 	public $ConfirmID;
+	public $ScoresheetID;
 	public $Status;
 	public $VerifiedBy;
 	public $Comments;
@@ -18,6 +19,7 @@ class ScoreSheetTest extends ScoreSheet{
 		$result = mysql_query($sql) or die('Query failed (scoresheet.php): ' . mysql_error());
 		while ($row = mysql_fetch_object($result)) {
 			$this->ConfirmID = $row->ID;
+			$ths->ScoresheetID = $row->ScoresheetID;
 			$this->Status = $row->Status;
 			$this->VerifiedBy = $row->VerifiedBy;
 			$this->Comments = $row->Comments;
