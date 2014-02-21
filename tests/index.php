@@ -113,7 +113,7 @@
 					  <br/><strong>file name:</strong> Scoresheet" . $SingleSheet->BrewID . "-" . $SingleSheet->GetSafeBrewName() . ".pdf
 					  </td><td>". $ScoreSheetTest->ReturnConfirmation() .
 
-			  		"<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
+			  		"<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\" target=\"blank\">Confirm</a></td>
 					</tr>";
 		}
 

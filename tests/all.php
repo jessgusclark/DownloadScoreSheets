@@ -120,7 +120,7 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 
 			  . $SingleSheet->ReturnConfirmation() .
 
-			  "<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\">Confirm</a></td>
+			  "<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\" target=\"blank\">Confirm</a></td>
 		</tr>";
 	}
 ?>
