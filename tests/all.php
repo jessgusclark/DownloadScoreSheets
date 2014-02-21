@@ -13,6 +13,7 @@
 		th {text-align:left; border-bottom:2px solid #000;}
 		td {vertical-align: top; border-bottom:1px solid #ccc;}
 		.red {color: red; font-weight: bold}
+		.confirmed td {color:#aaa;}
 </style>
 </head>
 
@@ -93,8 +94,13 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		// Confirming:
 		$SingleSheet->CheckConfirm();
 
-		echo "<tr>
-			<td>" . $SingleSheet->BrewID . "</td>
+		if ($SingleSheet->Status == "1"){
+			echo "<tr class='confirmed'>";
+		}else{
+			echo "<tr>";
+		}
+
+		echo"<td>" . $SingleSheet->BrewID . "</td>
 			<td>" . $SingleSheet->JudgingNumber . "</td>
 			<td>" . $SingleSheet->BrewName . "</td>
 			<td>" . $SingleSheet->BrewStyle . "</td>
