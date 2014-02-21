@@ -68,6 +68,9 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		<th>Confirm</th>
 </tr>
 <?php
+	$Total = 0;
+	$MissingTotal = array();
+	$NonRecievedTotal = array();
 
 	$check = new CheckAccess();	
 
@@ -88,6 +91,7 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 				$FileExists = "TRUE";
 			}else{
 				$FileExists = "<span class=\"red\">FALSE</span>";
+				array_push($MissingTotal, $SingleSheet->JudgingNumber);
 			}
 			echo "-->";
 
@@ -98,6 +102,11 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			echo "<tr class='confirmed'>";
 		}else{
 			echo "<tr>";
+		}
+
+		// Received:
+		if ($SingleSheet->brewReceived == 0){
+			array_push($NonRecievedTotal, $SingleSheet->JudgingNumber);
 		}
 
 		echo"<td>" . $SingleSheet->BrewID . "</td>
@@ -125,10 +134,29 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 		 	echo "<td> </td>";
 		 }
 
-
+		 $Total++;
 		echo "</tr>";
 	}
 ?>
 </table>
+<h2>Stats</h2>
+<p><strong>Total:</strong> <?php echo $Total; ?></p>
+<p><strong>Missing ScoreSheets:</strong> <?php echo count($MissingTotal); ?></p>
+<p><strong>Not Recieved: </strong> <?php echo count($NonRecievedTotal); ?></p>
+<p><strong>Missing minus Not Recieved: </strong><?php echo (count($MissingTotal) - count($NonRecievedTotal)); ?></p>
+<h3>Missing List (excluding non-recieved):</h3>
+<ul>
+<?php
+$RealMissing = array_diff($MissingTotal, $NonRecievedTotal);
+
+foreach ($RealMissing as $ID){
+
+	echo "<li>" . $ID . "</li>";
+
+}
+//var_dump($RealMissing);
+
+?>
+</ul>
 </body>
 </html>
