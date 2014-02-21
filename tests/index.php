@@ -111,10 +111,17 @@
 			echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
 					  <br/><strong>file name:</strong> Scoresheet" . $SingleSheet->BrewID . "-" . $SingleSheet->GetSafeBrewName() . ".pdf
-					  </td><td>". $ScoreSheetTest->ReturnConfirmation() .
+					  </td>";
+			
+			if ($FileExists == "TRUE"){
+			echo "<td>". $ScoreSheetTest->ReturnConfirmation() .
 
-			  		"<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\" target=\"blank\">Confirm</a></td>
-					</tr>";
+			  		"<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\" target=\"blank\">Confirm</a></td>";
+			 }else{
+			 	echo "<td> </td>";
+			 }
+
+			echo "</tr>";
 		}
 
 

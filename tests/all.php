@@ -115,13 +115,18 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			
 		echo "<td><strong>user has access:</strong> " . $HasAccess . "
 					  <br/><strong>file exists:</strong> " . $FileExists . "
-					  </td>
-			  <td>" 
+					  </td>";
 
-			  . $SingleSheet->ReturnConfirmation() .
+		if ($FileExists == "TRUE"){
+		echo "<td>". $SingleSheet->ReturnConfirmation() .
 
-			  "<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\" target=\"blank\">Confirm</a></td>
-		</tr>";
+		  		"<br><a href=\"confirm.php?scoresheetID=" . $SingleSheet->BrewID . "\" target=\"blank\">Confirm</a></td>";
+		 }else{
+		 	echo "<td> </td>";
+		 }
+
+
+		echo "</tr>";
 	}
 ?>
 </table>
