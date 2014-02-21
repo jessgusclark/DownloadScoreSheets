@@ -26,12 +26,24 @@ if (isset($_REQUEST["scoresheetID"])){
 	$ConfirmScoreSheet->BrewID = $_REQUEST["scoresheetID"];
 	$ConfirmScoreSheet->CheckConfirm();
 
+	//temp: nasty SELECT:
+	$sql = "SELECT id, brewName, brewStyle, brewJudgingNumber FROM `brewing` WHERE Id = '" . $ConfirmScoreSheet->BrewID . "' ";
+	$result = mysql_query($sql) or die('Query failed (scoresheet.php): ' . mysql_error());
+	while ($row = mysql_fetch_object($result)) {
+		$brewName = $row->brewName;
+		$brewStyle = $row->brewStyle;
+		$JudgingNumber = $row->brewJudgingNumber;
+	}
 ?>
 
 <form id="form1" name="form1" method="post" action="confirm.php">
 	<h2>Scoresheet: <?php echo $ConfirmScoreSheet->ReturnJudgingNumber(); ?></h2>
-	<p>ConfirmID: <?php echo $ConfirmScoreSheet->ConfirmID; ?><input type="hidden" name="ConfirmID" value="<?php echo $ConfirmScoreSheet->ConfirmID; ?>"></p>
-	<p>Judging ID: <?php echo $ConfirmScoreSheet->BrewID; ?><input type="hidden" name="BrewID" value="<?php echo $ConfirmScoreSheet->BrewID; ?>"></p>
+	<p><a href='/mods/downloadScoreSheets/download.php?pdf=<?php echo $ConfirmScoreSheet->BrewID; ?>' target=\"_blank\">Test Download</a></p>
+	<input type="hidden" name="ConfirmID" value="<?php echo $ConfirmScoreSheet->ConfirmID; ?>">
+	<input type="hidden" name="BrewID" value="<?php echo $ConfirmScoreSheet->BrewID; ?>">
+
+	<p>Brew Style: <?php echo $brewStyle;?></p>
+	<p>Judging ID: <?php echo $JudgingNumber; ?></p>
 	<p>Scoresheet Status: 
 	<select name="Status">
 		<option value="0">Error</option>
