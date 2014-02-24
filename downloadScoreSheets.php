@@ -7,7 +7,7 @@ if ($DownloadLinksReady){
 
 	include("mods/downloadScoreSheets/classes/user.php");
 
-	$LoadUser = new brewUser($_SESSION['brewerID']);
+	$LoadUser = new brewUser($_SESSION['user_id']);
 	$LoadUser->GetScoreSheetsForUser();
 
 	foreach ($LoadUser->AllScoresheets as $ScoreSheet) {
