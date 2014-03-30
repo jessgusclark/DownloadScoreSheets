@@ -62,3 +62,5 @@ To use the confirm action, you will need to create a new table in your MySQL dat
 - Status (int)
 - VerifiedBy (varchar(255))
 - Comments (text)
+
+
