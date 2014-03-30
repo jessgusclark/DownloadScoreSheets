@@ -46,3 +46,19 @@ After the scoresheets have been scanned in and named correctly (Scoresheet1.pdf,
 Open up **/mods/downloadScoreSheets/config.php** and change the first variable ($DownloadLinksReady) to TRUE
 
 If you have entered a beer into the competition, go to the "My Info and Entries" page and scroll to the bottom. For each beer entered, there should be a bulleted item that when clicked will download that PDF.
+
+### Test Downloads
+
+Open up config.php and change $TestMode = TRUE.
+
+This will allow any user to download any scoresheet and is helpful for testing. 
+
+This is located at /mods/downloadScoreSheets/tests/
+
+To use the confirm action, you will need to create a new table in your MySQL database 'downloadConfirm' with the following columns:
+
+- ID (int)
+- ScoresheetID (int)
+- Status (int)
+- VerifiedBy (varchar(255))
+- Comments (text)
