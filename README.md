@@ -27,7 +27,7 @@ Once Custom Modules are set to "Yes", Go to "Admin" / "Custom Modules" / "Add" /
 
 - **Permission:** All Users
 
-- **Extends Core Function:** Entry Information
+- **Extends Core Function:** User's My Info and Entries
 
 - **Rank:** 1
 
