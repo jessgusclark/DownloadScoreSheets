@@ -37,5 +37,24 @@ class ScoreSheetTest extends ScoreSheet{
 		return "<img src=\"/images/check.jpg\">" . $this->VerifiedBy;
 
 	}
+
+	public function ConfirmScoreSheet(){
+		if ($this->ConfirmID == ""){
+			$sql = "INSERT INTO `downloadConfirm` (`ScoresheetID`, `Status`, `VerifiedBy`, `Comments`) 
+			VALUES ('" . $this->BrewID . "', 
+					'" . $this->Status . "', 
+					'" . $this->VerifiedBy . "', 
+					'" . $this->Comments . "');";
+		}else{
+			//update	
+			$sql = "UPDATE `downloadConfirm` 	
+					SET `Status` = '" . $this->Status . "', 
+					`VerifiedBy` = '" . $this->VerifiedBy . "', 
+					`Comments` = '" . $this->Comments . "' 
+					WHERE `ID` = '" . $this->ConfirmID . "';";
+		}
+
+		$result = mysql_query($sql) or die('Query failed (scoresheetTest.php): ' . mysql_error());
+	}
 }
 ?> 
