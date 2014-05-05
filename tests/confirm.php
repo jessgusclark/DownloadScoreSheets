@@ -62,28 +62,16 @@ if (isset($_REQUEST["scoresheetID"])){
 
 if (isset($_POST["ConfirmID"])){
 
-	include("../../../site/config.php");
-	mysql_select_db($database, $connection);
+	$SetConfirmScoreSheet = new ScoreSheetTest();
+	$SetConfirmScoreSheet->ConfirmID = $_POST["ConfirmID"];
+	$SetConfirmScoreSheet->BrewID = $_POST["BrewID"];
+	$SetConfirmScoreSheet->Status = $_POST["Status"];
+	$SetConfirmScoreSheet->VerifiedBy = $_POST["VerifiedBy"];
+	$SetConfirmScoreSheet->Comments = $_POST["Comments"];
 
-	if ($_POST["ConfirmID"] == ""){
-		$sql = "INSERT INTO `downloadConfirm` (`ScoresheetID`, `Status`, `VerifiedBy`, `Comments`) 
-		VALUES ('" . $_POST["BrewID"] . "', 
-				'" . $_POST["Status"] . "', 
-				'" . $_POST["VerifiedBy"] . "', 
-				'" . $_POST["Comments"] . "');";
-	}else{
-		//update	
-		$sql = "UPDATE `downloadConfirm` 	
-				SET `Status` = '" . $_POST["Status"] . "', 
-				`VerifiedBy` = '" . $_POST["VerifiedBy"] . "', 
-				`Comments` = '" . $_POST["Comments"] . "' 
-				WHERE `ID` = '" . $_POST["ConfirmID"] . "';";
-	}
+	$SetConfirmScoreSheet->ConfirmScoreSheet();
 
-		$result = mysql_query($sql) or die('Query failed (scoresheet.php): ' . mysql_error());
-
-
-		echo "<h2>Comfirmed Saved.</h2>";
+	echo "<h2>Comfirmed Saved.</h2>";
 }
 ?>
 <hr/>
