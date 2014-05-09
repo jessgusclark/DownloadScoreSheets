@@ -49,18 +49,20 @@ If you have entered a beer into the competition, go to the "My Info and Entries"
 
 ### Test Downloads
 
-Open up config.php and change $TestMode = TRUE.
+Open up config.php and change $TestMode = TRUE. This will allow any user to download any scoresheet and is helpful for testing. 
 
-This will allow any user to download any scoresheet and is helpful for testing. 
+You will also need to create a new table in your database to use for confirming. Use the following SQL in PHPMyADMIN:
 
-This is located at /mods/downloadScoreSheets/tests/
+```
+CREATE TABLE IF NOT EXISTS `downloadConfirm` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ScoresheetID` int(11) NOT NULL,
+  `Status` int(11) NOT NULL,
+  `VerifiedBy` varchar(255) NOT NULL,
+  `Comments` text NOT NULL,
+  `Sha` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+);
+```
 
-To use the confirm action, you will need to create a new table in your MySQL database 'downloadConfirm' with the following columns:
-
-- ID (int)
-- ScoresheetID (int)
-- Status (int)
-- VerifiedBy (varchar(255))
-- Comments (text)
-
-
+Navigate to /mods/downloadScoreSheets/tests/all.php to see a list of all the beer entries in the database.
