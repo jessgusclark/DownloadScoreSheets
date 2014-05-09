@@ -11,8 +11,9 @@ class CheckAccess{
 		
 		include_once("../config.php");
 		global $DownloadLinksReady;
+		global $TestMode;
 
-		if (!$DownloadLinksReady){
+		if (!$DownloadLinksReady && !TestMode){
 			echo "Scoresheets are not ready.<br>";
 			return false;
 		}
