@@ -41,7 +41,9 @@ Go to the "My Info and Entries" page and scroll to the bottom. There should be a
 
 ### Upload Scoresheets
 
-After the scoresheets have been scanned in and named correctly (Scoresheet1.pdf, Scoresheet2.pdf, etc.) upload them into the score sheets directory.
+The scoresheets need to be scanned in and then named according to their Judging Number. I.E. 01-001.pdf, 01-002.pdf.
+
+Upload the PDF's into the score sheets directory that was defined in the configuration file.
 
 Open up **/mods/downloadScoreSheets/config.php** and change the first variable ($DownloadLinksReady) to TRUE
 
