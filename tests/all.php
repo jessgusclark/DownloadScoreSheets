@@ -117,7 +117,7 @@ $result = mysql_query($sql) or die('Query failed: ' . mysql_error());
 			<td>" . $SingleSheet->brewReceived . "</td>";
 
 		if ($FileExists == "TRUE"){
-			echo "<td><a href='/mods/downloadScoreSheets/download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>";
+			echo "<td><a href='../download.php?pdf=" . $SingleSheet->BrewID . "' target=\"_blank\">Test Download</a></td>";
 		}else{
 			echo "<td> </td>";
 		}
