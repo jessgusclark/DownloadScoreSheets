@@ -38,7 +38,7 @@ if (isset($_REQUEST["scoresheetID"])){
 
 <form id="form1" name="form1" method="post" action="confirm.php">
 	<h2>Scoresheet: <?php echo $ConfirmScoreSheet->ReturnJudgingNumber(); ?></h2>
-	<p><a href='/mods/downloadScoreSheets/download.php?pdf=<?php echo $ConfirmScoreSheet->BrewID; ?>' target=\"_blank\">Test Download</a></p>
+	<p><a href='../download.php?pdf=<?php echo $ConfirmScoreSheet->BrewID; ?>' target=\"_blank\">Test Download</a></p>
 	<input type="hidden" name="ConfirmID" value="<?php echo $ConfirmScoreSheet->ConfirmID; ?>">
 	<input type="hidden" name="BrewID" value="<?php echo $ConfirmScoreSheet->BrewID; ?>">
 
