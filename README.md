@@ -1,7 +1,7 @@
 DownloadScoreSheets
 ===================
 
-A plugin for BCOE&amp;M that allows competition participants to download their score sheets once they are ready. This project is still a work in progress and was used in the 2014 Sweethearts Revenge Competition: http://sweethearts.weizguys.com/
+A plugin for BCOE&M that allows competition participants to download their score sheets once they are ready. This project is still a work in progress and was used in the 2014 Sweethearts Revenge Competition: http://sweethearts.weizguys.com/
 
 Install
 -------
